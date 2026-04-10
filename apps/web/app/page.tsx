@@ -35,13 +35,12 @@ export default function Home() {
             Fördermittelberatung für den deutschen Mittelstand
           </p>
           <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl md:text-6xl">
-            Wir werden nur bezahlt,{" "}
-            <span className="text-primary">wenn Sie gefördert werden.</span>
+            Wir werden nur bezahlt, <span className="text-primary">wenn Sie gefördert werden.</span>
           </h1>
           <p className="mx-auto mb-10 max-w-xl text-lg text-muted-foreground sm:text-xl">
-            Ein KI-Team sucht rund um die Uhr für Sie — findet passende Förderprogramme,
-            formuliert Anträge und überwacht Fristen. Sie zahlen 10 %, und nur dann, wenn die
-            Förderung bewilligt wurde.
+            Ein KI-Team sucht rund um die Uhr für Sie — findet passende Förderprogramme, formuliert
+            Anträge und überwacht Fristen. Sie zahlen 10 %, und nur dann, wenn die Förderung
+            bewilligt wurde.
           </p>
           <Button asChild size="lg">
             <a href="#kontakt">Jetzt unverbindlich anfragen</a>
@@ -129,15 +128,18 @@ export default function Home() {
                 <li className="flex items-start gap-3">
                   <Clock className="mt-0.5 size-4 shrink-0 text-primary" />
                   <span>
-                    <strong className="text-foreground">Mittelstand mit 10 bis 250 Mitarbeitern</strong>{" "}
-                    — GmbH, GmbH &amp; Co. KG, AG. Unternehmen mit greifbarer deutscher Wertschöpfung.
+                    <strong className="text-foreground">
+                      Mittelstand mit 10 bis 250 Mitarbeitern
+                    </strong>{" "}
+                    — GmbH, GmbH &amp; Co. KG, AG. Unternehmen mit greifbarer deutscher
+                    Wertschöpfung.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Clock className="mt-0.5 size-4 shrink-0 text-primary" />
                   <span>
-                    Geschäftsführer und kaufmännische Leitungen, die wissen, dass Förderung
-                    da wäre — aber keine Zeit haben, ihr nachzujagen.
+                    Geschäftsführer und kaufmännische Leitungen, die wissen, dass Förderung da wäre
+                    — aber keine Zeit haben, ihr nachzujagen.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -200,8 +202,8 @@ export default function Home() {
             Unverbindlich anfragen
           </h2>
           <p className="mb-8 text-center text-muted-foreground">
-            Wir prüfen, ob Foerderis zu Ihrem Unternehmen passt — und melden uns innerhalb von
-            zwei Werktagen.
+            Wir prüfen, ob Foerderis zu Ihrem Unternehmen passt — und melden uns innerhalb von zwei
+            Werktagen.
           </p>
           <WaitlistForm />
         </div>
