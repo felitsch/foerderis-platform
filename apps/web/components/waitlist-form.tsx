@@ -1,8 +1,8 @@
 "use client";
 
 import { type WaitlistState, submitWaitlist } from "@/app/actions/waitlist";
-import { Button } from "@foerderpilot/ui";
-import { Input } from "@foerderpilot/ui";
+import { Button } from "@foerderis/ui";
+import { Input } from "@foerderis/ui";
 import { AlertCircle, CheckCircle, Loader2 } from "lucide-react";
 import { useActionState } from "react";
 

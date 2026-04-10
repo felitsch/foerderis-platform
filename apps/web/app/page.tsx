@@ -1,6 +1,6 @@
 import { WaitlistForm } from "@/components/waitlist-form";
-import { Button } from "@foerderpilot/ui";
-import { Card, CardContent } from "@foerderpilot/ui";
+import { Button } from "@foerderis/ui";
+import { Card, CardContent } from "@foerderis/ui";
 import { Clock, FileText, ShieldCheck } from "lucide-react";
 
 const HOW_IT_WORKS = [
