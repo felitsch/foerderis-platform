@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
+import type { Metadata } from "next";
 import "./globals.css";
 
 const SITE_URL = "https://foerderis.de";

@@ -5,9 +5,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 // ---------------------------------------------------------------------------
 
 vi.mock("resend", () => {
-  const mockSend = vi
-    .fn()
-    .mockResolvedValue({ data: { id: "email-id" }, error: null });
+  const mockSend = vi.fn().mockResolvedValue({ data: { id: "email-id" }, error: null });
   return {
     Resend: vi.fn().mockImplementation(() => ({
       emails: { send: mockSend },
@@ -21,19 +19,14 @@ vi.mock("resend", () => {
 // ---------------------------------------------------------------------------
 
 import * as resendModule from "resend";
-import {
-  buildDigestHtml,
-  fetchIssues,
-  type PaperclipIssue,
-} from "../route.js";
+import { type PaperclipIssue, buildDigestHtml, fetchIssues } from "../route.js";
 import { POST } from "../route.js";
 
 // ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
 
-const mockSend = (resendModule as unknown as { __mockSend: ReturnType<typeof vi.fn> })
-  .__mockSend;
+const mockSend = (resendModule as unknown as { __mockSend: ReturnType<typeof vi.fn> }).__mockSend;
 
 function makeIssue(overrides: Partial<PaperclipIssue> = {}): PaperclipIssue {
   return {
@@ -77,10 +70,20 @@ describe("buildDigestHtml", () => {
   it("includes all three sections", () => {
     const done = [makeIssue({ identifier: "FRDAA-1", title: "Done one" })];
     const inProgress = [
-      makeIssue({ identifier: "FRDAA-2", title: "In progress", status: "in_progress", completedAt: null }),
+      makeIssue({
+        identifier: "FRDAA-2",
+        title: "In progress",
+        status: "in_progress",
+        completedAt: null,
+      }),
     ];
     const approval = [
-      makeIssue({ identifier: "FRDAA-3", title: "Needs review", status: "in_review", completedAt: null }),
+      makeIssue({
+        identifier: "FRDAA-3",
+        title: "Needs review",
+        status: "in_review",
+        completedAt: null,
+      }),
     ];
 
     const html = buildDigestHtml(done, inProgress, approval, base);
@@ -117,32 +120,25 @@ describe("fetchIssues", () => {
 
   it("calls the correct URL and returns parsed issues", async () => {
     const issues = [makeIssue()];
-    vi.mocked(fetch).mockResolvedValueOnce(
-      new Response(JSON.stringify(issues), { status: 200 }),
-    );
+    vi.mocked(fetch).mockResolvedValueOnce(new Response(JSON.stringify(issues), { status: 200 }));
 
-    const result = await fetchIssues(
-      "http://paperclip.test",
-      "company-id",
-      "token",
-      { status: "done" },
-    );
+    const result = await fetchIssues("http://paperclip.test", "company-id", "token", {
+      status: "done",
+    });
 
     expect(fetch).toHaveBeenCalledWith(
       "http://paperclip.test/api/companies/company-id/issues?status=done",
       expect.objectContaining({
         headers: { Authorization: "Bearer token" },
-      }),
+      })
     );
     expect(result).toEqual(issues);
   });
 
   it("throws when Paperclip returns a non-OK status", async () => {
-    vi.mocked(fetch).mockResolvedValueOnce(
-      new Response("", { status: 500 }),
-    );
+    vi.mocked(fetch).mockResolvedValueOnce(new Response("", { status: 500 }));
     await expect(
-      fetchIssues("http://paperclip.test", "c", "t", { status: "done" }),
+      fetchIssues("http://paperclip.test", "c", "t", { status: "done" })
     ).rejects.toThrow("Paperclip query failed: 500");
   });
 });
@@ -172,7 +168,7 @@ describe("POST /api/internal/daily-digest", () => {
   function mockPaperclipFetch(
     done: PaperclipIssue[],
     inProgress: PaperclipIssue[],
-    approval: PaperclipIssue[],
+    approval: PaperclipIssue[]
   ) {
     vi.mocked(fetch)
       .mockResolvedValueOnce(new Response(JSON.stringify(done), { status: 200 }))
@@ -200,12 +196,12 @@ describe("POST /api/internal/daily-digest", () => {
 
     const now = new Date().toISOString();
     const yesterday = new Date(Date.now() - 30 * 60 * 1000).toISOString(); // 30 min ago — within 24h
-    const oldDone = makeIssue({ identifier: "FRDAA-10", completedAt: new Date(Date.now() - 25 * 60 * 60 * 1000).toISOString() }); // 25h ago — outside 24h
+    const oldDone = makeIssue({
+      identifier: "FRDAA-10",
+      completedAt: new Date(Date.now() - 25 * 60 * 60 * 1000).toISOString(),
+    }); // 25h ago — outside 24h
 
-    const doneIssues = [
-      makeIssue({ identifier: "FRDAA-11", completedAt: yesterday }),
-      oldDone,
-    ];
+    const doneIssues = [makeIssue({ identifier: "FRDAA-11", completedAt: yesterday }), oldDone];
     const inProgressIssues = [
       makeIssue({ identifier: "FRDAA-20", status: "in_progress", completedAt: null }),
     ];
@@ -220,7 +216,7 @@ describe("POST /api/internal/daily-digest", () => {
 
     const body = await res.json();
     expect(body.sent).toBe(true);
-    expect(body.stats.done).toBe(1);       // only the recent one
+    expect(body.stats.done).toBe(1); // only the recent one
     expect(body.stats.inProgress).toBe(1);
     expect(body.stats.needsApproval).toBe(1);
 

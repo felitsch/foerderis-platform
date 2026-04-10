@@ -30,13 +30,12 @@ export async function fetchIssues(
   apiUrl: string,
   companyId: string,
   token: string,
-  params: Record<string, string>,
+  params: Record<string, string>
 ): Promise<PaperclipIssue[]> {
   const query = new URLSearchParams(params).toString();
-  const res = await fetch(
-    `${apiUrl}/api/companies/${companyId}/issues?${query}`,
-    { headers: { Authorization: `Bearer ${token}` } },
-  );
+  const res = await fetch(`${apiUrl}/api/companies/${companyId}/issues?${query}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
   if (!res.ok) {
     throw new Error(`Paperclip query failed: ${res.status} (${query})`);
   }
@@ -47,19 +46,14 @@ export function buildDigestHtml(
   done: PaperclipIssue[],
   inProgress: PaperclipIssue[],
   needsApproval: PaperclipIssue[],
-  baseUrl: string,
+  baseUrl: string
 ): string {
-  const issueUrl = (issue: PaperclipIssue) =>
-    `${baseUrl}/FRDAA/issues/${issue.identifier}`;
+  const issueUrl = (issue: PaperclipIssue) => `${baseUrl}/FRDAA/issues/${issue.identifier}`;
 
   const issueRow = (issue: PaperclipIssue) =>
     `<li><a href="${issueUrl(issue)}">${issue.identifier}</a> — ${issue.title}</li>`;
 
-  const section = (
-    heading: string,
-    items: PaperclipIssue[],
-    emptyMsg: string,
-  ) => `
+  const section = (heading: string, items: PaperclipIssue[], emptyMsg: string) => `
 <h2 style="color:#1a1a1a;border-bottom:2px solid #e5e7eb;padding-bottom:8px;margin-top:28px;">${heading}</h2>
 ${items.length > 0 ? `<ul style="line-height:1.8;">${items.map(issueRow).join("")}</ul>` : `<p style="color:#6b7280;font-style:italic;">${emptyMsg}</p>`}`;
 
@@ -101,15 +95,9 @@ export async function POST(request: Request) {
   const paperclipApiUrl = process.env.PAPERCLIP_API_URL;
   const paperclipCompanyId = process.env.PAPERCLIP_COMPANY_ID;
   const paperclipSystemToken = process.env.PAPERCLIP_SYSTEM_TOKEN;
-  const paperclipUiUrl =
-    process.env.PAPERCLIP_UI_URL ?? "https://paperclip.ing";
+  const paperclipUiUrl = process.env.PAPERCLIP_UI_URL ?? "https://paperclip.ing";
 
-  if (
-    !resendApiKey ||
-    !paperclipApiUrl ||
-    !paperclipCompanyId ||
-    !paperclipSystemToken
-  ) {
+  if (!resendApiKey || !paperclipApiUrl || !paperclipCompanyId || !paperclipSystemToken) {
     return NextResponse.json(
       {
         error: "Missing required env vars",
@@ -120,7 +108,7 @@ export async function POST(request: Request) {
           !paperclipSystemToken && "PAPERCLIP_SYSTEM_TOKEN",
         ].filter(Boolean),
       },
-      { status: 503 },
+      { status: 503 }
     );
   }
 
@@ -143,16 +131,9 @@ export async function POST(request: Request) {
     ]);
 
     // Keep only issues completed within the last 24 h
-    const recentlyDone = allDone.filter(
-      (i) => i.completedAt != null && i.completedAt >= cutoff,
-    );
+    const recentlyDone = allDone.filter((i) => i.completedAt != null && i.completedAt >= cutoff);
 
-    const html = buildDigestHtml(
-      recentlyDone,
-      inProgress,
-      needsApproval,
-      paperclipUiUrl,
-    );
+    const html = buildDigestHtml(recentlyDone, inProgress, needsApproval, paperclipUiUrl);
 
     const dateLabel = new Date().toLocaleDateString("de-DE");
     await resend.emails.send({
@@ -174,7 +155,7 @@ export async function POST(request: Request) {
   } catch (err) {
     return NextResponse.json(
       { error: err instanceof Error ? err.message : "Unknown error" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

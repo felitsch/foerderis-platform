@@ -91,7 +91,7 @@ const jsonLd = {
         "@type": "Answer",
         text: answer,
       },
-    })),
+    }))
   ),
 };
 
