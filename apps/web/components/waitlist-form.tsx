@@ -26,10 +26,14 @@ export function WaitlistForm() {
   }
 
   return (
-    <form action={action} className="flex flex-col gap-4">
+    <form action={action} className="flex flex-col gap-4" aria-describedby="required-fields-hint">
+      <p id="required-fields-hint" className="text-xs text-muted-foreground">
+        <span aria-hidden="true">*</span> Pflichtfeld
+      </p>
+
       <div className="flex flex-col gap-1.5">
         <label htmlFor="email" className="text-sm font-medium text-foreground">
-          E-Mail-Adresse <span className="text-destructive">*</span>
+          E-Mail-Adresse <span aria-hidden="true" className="text-destructive">*</span>
         </label>
         <Input
           id="email"
@@ -37,6 +41,7 @@ export function WaitlistForm() {
           type="email"
           placeholder="max@mustermann-gmbh.de"
           required
+          aria-required="true"
           disabled={isPending}
           autoComplete="email"
         />
@@ -44,7 +49,7 @@ export function WaitlistForm() {
 
       <div className="flex flex-col gap-1.5">
         <label htmlFor="companyName" className="text-sm font-medium text-foreground">
-          Firmenname <span className="text-destructive">*</span>
+          Firmenname <span aria-hidden="true" className="text-destructive">*</span>
         </label>
         <Input
           id="companyName"
@@ -52,6 +57,7 @@ export function WaitlistForm() {
           type="text"
           placeholder="Mustermann GmbH"
           required
+          aria-required="true"
           disabled={isPending}
           autoComplete="organization"
         />
