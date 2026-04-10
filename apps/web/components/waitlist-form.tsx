@@ -19,7 +19,7 @@ export function WaitlistForm() {
           Vielen Dank! Sie stehen auf der Liste.
         </p>
         <p className="text-sm text-muted-foreground">
-          Wir melden uns, sobald FörderPilot startklar ist.
+          Wir melden uns innerhalb von zwei Werktagen bei Ihnen.
         </p>
       </div>
     );

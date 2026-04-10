@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "FörderPilot",
+  title: "Foerderis — Fördermittelberatung auf Erfolgsbasis",
   description:
-    "Automatisierte Fördermittel-Recherche, Antragsvorbereitung und Compliance-Prüfung für deutsche KMUs.",
+    "Wir werden nur bezahlt, wenn Sie gefördert werden. Ein KI-Team sucht rund um die Uhr Förderprogramme für den deutschen Mittelstand — 10 % nur bei Bewilligung.",
 };
 
 export default function RootLayout({

@@ -12,16 +12,27 @@ test.describe("Landing Page — Smoke Tests", () => {
 
   test("hero section is visible", async ({ page }) => {
     await page.goto("/");
-    await expect(page.getByRole("heading", { name: /Fördermittel/i, level: 1 })).toBeVisible();
-    await expect(page.getByRole("link", { name: /Warteliste/i })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /bezahlt/i, level: 1 })).toBeVisible();
+    await expect(page.getByRole("link", { name: /anfragen/i })).toBeVisible();
   });
 
-  test("value proposition section is visible", async ({ page }) => {
+  test("how it works section is visible", async ({ page }) => {
     await page.goto("/");
-    await expect(page.getByRole("heading", { name: /FörderPilot für Sie/i })).toBeVisible();
-    await expect(page.getByText("Automatische Förderrecherche")).toBeVisible();
-    await expect(page.getByText("KI-gestützte Antragsvorbereitung")).toBeVisible();
-    await expect(page.getByText("Integrierter Compliance-Check")).toBeVisible();
+    await expect(page.getByRole("heading", { name: /So funktioniert es/i })).toBeVisible();
+    await expect(page.getByText("Wir lernen Ihr Unternehmen kennen")).toBeVisible();
+    await expect(page.getByText(/KI-Team arbeitet rund um die Uhr/i)).toBeVisible();
+    await expect(page.getByText(/nur bei Bewilligung/i)).toBeVisible();
+  });
+
+  test("pricing section is visible", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.getByRole("heading", { name: /10 %/i })).toBeVisible();
+  });
+
+  test("audience section is visible", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.getByRole("heading", { name: /Für wen wir arbeiten/i })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /Was wir nicht sind/i })).toBeVisible();
   });
 
   test("footer with Impressum link is visible", async ({ page }) => {
@@ -36,13 +47,13 @@ test.describe("Landing Page — Smoke Tests", () => {
   });
 });
 
-test.describe("Waitlist Form", () => {
+test.describe("Kontakt Form", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto("/#warteliste");
+    await page.goto("/#kontakt");
   });
 
   test("form is visible", async ({ page }) => {
-    await expect(page.getByRole("heading", { name: /Früher Zugang/i })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /Unverbindlich anfragen/i })).toBeVisible();
     await expect(page.getByLabel(/E-Mail/i)).toBeVisible();
     await expect(page.getByLabel(/Firmenname/i)).toBeVisible();
     await expect(page.getByRole("button", { name: /vormerken/i })).toBeVisible();
@@ -76,7 +87,7 @@ test.describe("Responsive Layout", () => {
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto("/");
 
-    await expect(page.getByRole("heading", { name: /Fördermittel/i, level: 1 })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /bezahlt/i, level: 1 })).toBeVisible();
     await expect(page.getByLabel(/E-Mail/i)).toBeVisible();
     await expect(page.getByLabel(/Firmenname/i)).toBeVisible();
     await expect(page.getByRole("link", { name: "Impressum" })).toBeVisible();
@@ -86,7 +97,7 @@ test.describe("Responsive Layout", () => {
     await page.setViewportSize({ width: 1280, height: 800 });
     await page.goto("/");
 
-    await expect(page.getByRole("heading", { name: /Fördermittel/i, level: 1 })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /bezahlt/i, level: 1 })).toBeVisible();
     await expect(page.getByLabel(/E-Mail/i)).toBeVisible();
     await expect(page.getByLabel(/Firmenname/i)).toBeVisible();
     await expect(page.getByRole("link", { name: "Impressum" })).toBeVisible();
