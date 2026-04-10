@@ -1,10 +1,10 @@
 "use client";
 
-import { useActionState } from "react";
+import { type WaitlistState, submitWaitlist } from "@/app/actions/waitlist";
 import { Button } from "@foerderpilot/ui";
 import { Input } from "@foerderpilot/ui";
-import { submitWaitlist, type WaitlistState } from "@/app/actions/waitlist";
-import { CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { AlertCircle, CheckCircle, Loader2 } from "lucide-react";
+import { useActionState } from "react";
 
 const initialState: WaitlistState = { status: "idle" };
 

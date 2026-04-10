@@ -1,7 +1,7 @@
-import { Search, FileText, ShieldCheck } from "lucide-react";
+import { WaitlistForm } from "@/components/waitlist-form";
 import { Button } from "@foerderpilot/ui";
 import { Card, CardContent } from "@foerderpilot/ui";
-import { WaitlistForm } from "@/components/waitlist-form";
+import { FileText, Search, ShieldCheck } from "lucide-react";
 
 const VALUE_PROPS = [
   {
@@ -35,13 +35,11 @@ export default function Home() {
             Jetzt in der Beta-Phase
           </p>
           <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl md:text-6xl">
-            Nie wieder{" "}
-            <span className="text-primary">Fördermittel</span>{" "}
-            verpassen.
+            Nie wieder <span className="text-primary">Fördermittel</span> verpassen.
           </h1>
           <p className="mx-auto mb-10 max-w-xl text-lg text-muted-foreground sm:text-xl">
-            KI-gestützte Förderrecherche, Antragsvorbereitung und Compliance-Prüfung
-            — speziell für den deutschen Mittelstand.
+            KI-gestützte Förderrecherche, Antragsvorbereitung und Compliance-Prüfung — speziell für
+            den deutschen Mittelstand.
           </p>
           <Button asChild size="lg">
             <a href="#warteliste">Jetzt auf die Warteliste</a>
@@ -75,11 +73,7 @@ export default function Home() {
       </section>
 
       {/* Waitlist Form */}
-      <section
-        id="warteliste"
-        className="px-4 py-20"
-        aria-labelledby="waitlist-heading"
-      >
+      <section id="warteliste" className="px-4 py-20" aria-labelledby="waitlist-heading">
         <div className="mx-auto max-w-md">
           <h2
             id="waitlist-heading"

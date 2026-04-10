@@ -9,7 +9,7 @@ export type WaitlistState =
 
 export async function submitWaitlist(
   _prevState: WaitlistState,
-  formData: FormData,
+  formData: FormData
 ): Promise<WaitlistState> {
   const raw = {
     email: formData.get("email"),

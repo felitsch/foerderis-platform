@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 
 test.describe("Landing Page — Smoke Tests", () => {
   test("page loads without errors", async ({ page }) => {
@@ -12,17 +12,13 @@ test.describe("Landing Page — Smoke Tests", () => {
 
   test("hero section is visible", async ({ page }) => {
     await page.goto("/");
-    await expect(
-      page.getByRole("heading", { name: /Fördermittel/i, level: 1 }),
-    ).toBeVisible();
+    await expect(page.getByRole("heading", { name: /Fördermittel/i, level: 1 })).toBeVisible();
     await expect(page.getByRole("link", { name: /Warteliste/i })).toBeVisible();
   });
 
   test("value proposition section is visible", async ({ page }) => {
     await page.goto("/");
-    await expect(
-      page.getByRole("heading", { name: /FörderPilot für Sie/i }),
-    ).toBeVisible();
+    await expect(page.getByRole("heading", { name: /FörderPilot für Sie/i })).toBeVisible();
     await expect(page.getByText("Automatische Förderrecherche")).toBeVisible();
     await expect(page.getByText("KI-gestützte Antragsvorbereitung")).toBeVisible();
     await expect(page.getByText("Integrierter Compliance-Check")).toBeVisible();
@@ -35,9 +31,7 @@ test.describe("Landing Page — Smoke Tests", () => {
 
   test("Impressum page loads", async ({ page }) => {
     await page.goto("/impressum");
-    await expect(
-      page.getByRole("heading", { name: "Impressum", level: 1 }),
-    ).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Impressum", level: 1 })).toBeVisible();
     await expect(page.getByText(/§ 5 TMG/)).toBeVisible();
   });
 });
@@ -51,9 +45,7 @@ test.describe("Waitlist Form", () => {
     await expect(page.getByRole("heading", { name: /Früher Zugang/i })).toBeVisible();
     await expect(page.getByLabel(/E-Mail/i)).toBeVisible();
     await expect(page.getByLabel(/Firmenname/i)).toBeVisible();
-    await expect(
-      page.getByRole("button", { name: /vormerken/i }),
-    ).toBeVisible();
+    await expect(page.getByRole("button", { name: /vormerken/i })).toBeVisible();
   });
 
   test("empty submit shows browser validation", async ({ page }) => {
@@ -65,9 +57,7 @@ test.describe("Waitlist Form", () => {
   });
 
   test("submit button is enabled by default", async ({ page }) => {
-    await expect(
-      page.getByRole("button", { name: /vormerken/i }),
-    ).toBeEnabled();
+    await expect(page.getByRole("button", { name: /vormerken/i })).toBeEnabled();
   });
 
   test("shows loading state on submit", async ({ page }) => {
@@ -86,9 +76,7 @@ test.describe("Responsive Layout", () => {
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto("/");
 
-    await expect(
-      page.getByRole("heading", { name: /Fördermittel/i, level: 1 }),
-    ).toBeVisible();
+    await expect(page.getByRole("heading", { name: /Fördermittel/i, level: 1 })).toBeVisible();
     await expect(page.getByLabel(/E-Mail/i)).toBeVisible();
     await expect(page.getByLabel(/Firmenname/i)).toBeVisible();
     await expect(page.getByRole("link", { name: "Impressum" })).toBeVisible();
@@ -98,9 +86,7 @@ test.describe("Responsive Layout", () => {
     await page.setViewportSize({ width: 1280, height: 800 });
     await page.goto("/");
 
-    await expect(
-      page.getByRole("heading", { name: /Fördermittel/i, level: 1 }),
-    ).toBeVisible();
+    await expect(page.getByRole("heading", { name: /Fördermittel/i, level: 1 })).toBeVisible();
     await expect(page.getByLabel(/E-Mail/i)).toBeVisible();
     await expect(page.getByLabel(/Firmenname/i)).toBeVisible();
     await expect(page.getByRole("link", { name: "Impressum" })).toBeVisible();

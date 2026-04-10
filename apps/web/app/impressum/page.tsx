@@ -1,6 +1,6 @@
+import { Button } from "@foerderpilot/ui";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Button } from "@foerderpilot/ui";
 
 export const metadata: Metadata = {
   title: "Impressum — FörderPilot",
@@ -32,9 +32,7 @@ export default function ImpressumPage() {
 
         <section>
           <h2 className="text-lg font-semibold text-foreground">Kontakt</h2>
-          <p className="mt-2">
-            E-Mail: [kontakt@example.com]
-          </p>
+          <p className="mt-2">E-Mail: [kontakt@example.com]</p>
         </section>
 
         <section>
@@ -49,8 +47,8 @@ export default function ImpressumPage() {
         </section>
 
         <p className="text-xs text-muted-foreground/60">
-          Dieses Impressum ist ein Platzhalter und wird vor dem Launch mit den vollständigen
-          Angaben befüllt.
+          Dieses Impressum ist ein Platzhalter und wird vor dem Launch mit den vollständigen Angaben
+          befüllt.
         </p>
       </div>
 
