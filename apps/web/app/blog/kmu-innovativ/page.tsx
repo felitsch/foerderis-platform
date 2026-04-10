@@ -105,20 +105,20 @@ export default function KmuInnovativPage() {
               >
                 Wer qualifiziert sich?
               </h2>
-              <p>
-                Antragsberechtigt sind Unternehmen, die die EU-Definition eines KMU erfüllen:
-              </p>
+              <p>Antragsberechtigt sind Unternehmen, die die EU-Definition eines KMU erfüllen:</p>
               <ul className="mt-4 space-y-2 list-none">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary" />
                   <span>
-                    <strong className="text-foreground">Bis zu 250 Mitarbeiter</strong> (Vollzeitäquivalente)
+                    <strong className="text-foreground">Bis zu 250 Mitarbeiter</strong>{" "}
+                    (Vollzeitäquivalente)
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary" />
                   <span>
-                    <strong className="text-foreground">Jahresumsatz bis 50 Mio. €</strong> oder Bilanzsumme bis 43 Mio. €
+                    <strong className="text-foreground">Jahresumsatz bis 50 Mio. €</strong> oder
+                    Bilanzsumme bis 43 Mio. €
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -131,17 +131,16 @@ export default function KmuInnovativPage() {
                   <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary" />
                   <span>
                     Geplantes Vorhaben in einem der geförderten{" "}
-                    <strong className="text-foreground">Zukunftsfelder</strong>: u. a.
-                    Informations- und Kommunikationstechnologien, Maschinenbau,
-                    Produktionstechnologien, Biotechnologie, Ressourceneffizienz, Photonik oder
-                    Quantentechnologien
+                    <strong className="text-foreground">Zukunftsfelder</strong>: u. a. Informations-
+                    und Kommunikationstechnologien, Maschinenbau, Produktionstechnologien,
+                    Biotechnologie, Ressourceneffizienz, Photonik oder Quantentechnologien
                   </span>
                 </li>
               </ul>
               <p className="mt-4">
-                Auch Verbundprojekte — gemeinsam mit anderen Unternehmen oder Forschungseinrichtungen
-                — sind förderfähig. In vielen Themenfeldern werden Kooperationen sogar ausdrücklich
-                begrüßt.
+                Auch Verbundprojekte — gemeinsam mit anderen Unternehmen oder
+                Forschungseinrichtungen — sind förderfähig. In vielen Themenfeldern werden
+                Kooperationen sogar ausdrücklich begrüßt.
               </p>
             </section>
 
@@ -155,21 +154,23 @@ export default function KmuInnovativPage() {
               </h2>
               <p>
                 KMU-innovativ finanziert industrie- und technologiegetriebene F&E-Vorhaben mit
-                klarem Innovationscharakter. Gefördert werden Personal-, Sach- und
-                Reisekosten, die direkt dem Forschungsvorhaben zuzurechnen sind.
+                klarem Innovationscharakter. Gefördert werden Personal-, Sach- und Reisekosten, die
+                direkt dem Forschungsvorhaben zuzurechnen sind.
               </p>
               <p className="mt-4">Die Förderquoten sind attraktiv:</p>
               <ul className="mt-4 space-y-2 list-none">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary" />
                   <span>
-                    <strong className="text-foreground">50 % der förderfähigen Kosten</strong> als Standardsatz
+                    <strong className="text-foreground">50 % der förderfähigen Kosten</strong> als
+                    Standardsatz
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary" />
                   <span>
-                    <strong className="text-foreground">Bis zu 60 %</strong> für kleine Unternehmen (unter 50 Mitarbeiter)
+                    <strong className="text-foreground">Bis zu 60 %</strong> für kleine Unternehmen
+                    (unter 50 Mitarbeiter)
                   </span>
                 </li>
               </ul>
@@ -201,9 +202,9 @@ export default function KmuInnovativPage() {
                     <strong className="text-foreground">Projektskizze</strong>
                     <p className="mt-1">
                       Umfang ca. 10–15 Seiten: Beschreibung des Vorhabens, technische Ziele,
-                      Arbeitsplan, Verwertungskonzept. Die Skizze kann jederzeit eingereicht
-                      werden — es gibt keine festen Stichtage. Rückmeldung vom Projektträger
-                      in der Regel nach 6–8 Wochen.
+                      Arbeitsplan, Verwertungskonzept. Die Skizze kann jederzeit eingereicht werden
+                      — es gibt keine festen Stichtage. Rückmeldung vom Projektträger in der Regel
+                      nach 6–8 Wochen.
                     </p>
                   </div>
                 </li>
@@ -214,9 +215,9 @@ export default function KmuInnovativPage() {
                   <div>
                     <strong className="text-foreground">Vollantrag</strong>
                     <p className="mt-1">
-                      Nur auf Einladung nach positiver Skizzenbewertung. Detaillierter
-                      Arbeits- und Finanzierungsplan, Meilensteine, Bonitätsnachweis. Die
-                      Bearbeitungszeit bis zur Bewilligung beträgt typisch weitere 2–3 Monate.
+                      Nur auf Einladung nach positiver Skizzenbewertung. Detaillierter Arbeits- und
+                      Finanzierungsplan, Meilensteine, Bonitätsnachweis. Die Bearbeitungszeit bis
+                      zur Bewilligung beträgt typisch weitere 2–3 Monate.
                     </p>
                   </div>
                 </li>
@@ -227,10 +228,9 @@ export default function KmuInnovativPage() {
                   <div>
                     <strong className="text-foreground">Bewilligung und Projektstart</strong>
                     <p className="mt-1">
-                      Nach Bewilligung beginnt die Förderperiode. Mittel werden auf
-                      Antrag abgerufen — die Fördermittel fließen direkt, nicht
-                      rückwirkend. Von Skizzeneinreichung bis Projektstart vergehen
-                      realistisch{" "}
+                      Nach Bewilligung beginnt die Förderperiode. Mittel werden auf Antrag abgerufen
+                      — die Fördermittel fließen direkt, nicht rückwirkend. Von Skizzeneinreichung
+                      bis Projektstart vergehen realistisch{" "}
                       <strong className="text-foreground">3–6 Monate</strong>.
                     </p>
                   </div>
@@ -245,9 +245,9 @@ export default function KmuInnovativPage() {
               Passt KMU-innovativ zu Ihrem Unternehmen?
             </h2>
             <p className="mb-6 text-muted-foreground">
-              Foerderis prüft kostenlos, ob Ihr Vorhaben förderfähig ist — und übernimmt auf
-              Wunsch Skizze, Vollantrag und Fristenmanagement. Sie zahlen 10 % der bewilligten
-              Summe, und nur dann, wenn das Geld auf Ihrem Konto eingeht.
+              Foerderis prüft kostenlos, ob Ihr Vorhaben förderfähig ist — und übernimmt auf Wunsch
+              Skizze, Vollantrag und Fristenmanagement. Sie zahlen 10 % der bewilligten Summe, und
+              nur dann, wenn das Geld auf Ihrem Konto eingeht.
             </p>
             <Button asChild size="lg">
               <Link href="/#kontakt">Kostenloses Erstgespräch buchen</Link>
