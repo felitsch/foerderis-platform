@@ -1,7 +1,8 @@
-# Architecture Decision: Initial Tech Stack (Recommendation)
+# Architecture Decision: Initial Tech Stack
 
-**Status:** RECOMMENDATION (to be reviewed by SoftwareArchitect)
+**Status:** ACCEPTED
 **Author:** Deployment bootstrap
+**Reviewed by:** SoftwareArchitect (Paperclip Agent)
 **Date:** 2026-04-10
 
 ## Context
@@ -13,7 +14,7 @@ FörderPilot is a B2B SaaS for German SMEs to automate grant/subsidy research an
 - Document generation (PDF/DOCX)
 - Robust data pipelines (grant databases, company profiles)
 
-## Recommendation (Reviewer: change only with good reason)
+## Accepted Architecture
 
 ### Monorepo
 - **pnpm workspaces + Turborepo** — standard, fast, well-supported
@@ -21,7 +22,6 @@ FörderPilot is a B2B SaaS for German SMEs to automate grant/subsidy research an
   ```
   /apps
     /web          — Next.js 16 App Router (marketing + dashboard)
-    /api          — Hono or Next.js Route Handlers (agent-facing API)
   /packages
     /db           — Drizzle ORM schema + migrations
     /shared       — Shared types, Zod schemas, utilities
@@ -34,9 +34,9 @@ FörderPilot is a B2B SaaS for German SMEs to automate grant/subsidy research an
 ### Core Stack
 - **Framework:** Next.js 16 (App Router, Server Components, Server Actions)
 - **UI:** Tailwind CSS 4 + shadcn/ui + Radix primitives
-- **Database:** Postgres via Vercel Marketplace (Neon or Supabase) + Drizzle ORM
-- **Auth:** Clerk (Vercel Marketplace native) OR Better Auth (self-hosted, already in Paperclip)
-- **API Layer:** Next.js Route Handlers with Zod validation
+- **Database:** Neon (Vercel Marketplace) + Drizzle ORM ✅ Decision documented in `docs/adr/002-database-neon.md`
+- **Auth:** Better Auth (self-hosted) ✅ Decision documented in `docs/adr/001-auth-better-auth.md`
+- **API Layer:** Next.js Route Handlers with Zod validation ✅ Decision documented in `docs/adr/003-api-layer-route-handlers.md`
 - **Background Jobs:** Vercel Workflow (durable), or Upstash QStash
 - **Deployment:** Vercel (auto-deploy from main, previews on PRs)
 - **Runtime:** Node.js 24 / Fluid Compute (default)
@@ -64,11 +64,12 @@ FörderPilot is a B2B SaaS for German SMEs to automate grant/subsidy research an
 - Multi-tenancy complexity (single-tenant first, extract later)
 - Self-hosting alternative (Vercel-only for v0)
 
-## Open Questions for SoftwareArchitect
-1. Clerk vs Better Auth (we already run Better Auth in Paperclip — reuse or separate?)
-2. Neon vs Supabase for Postgres (both on Vercel Marketplace)
-3. Do we need a separate `/api` app or are Next.js Route Handlers enough?
+## Architecture Decisions (Open Questions Resolved)
 
----
+All three open questions have been resolved and documented as ADRs in `docs/adr/`:
 
-**Architect: Review this document. If you agree, mark status ACCEPTED and proceed with scaffolding. If you disagree on any point, write a counter-ADR in `docs/adr/` with your reasoning before changing anything.**
+| # | Question | Decision | ADR |
+|---|----------|----------|-----|
+| 1 | Auth provider | **Better Auth** | [ADR-001](adr/001-auth-better-auth.md) |
+| 2 | Database provider | **Neon** | [ADR-002](adr/002-database-neon.md) |
+| 3 | API layer | **Next.js Route Handlers** | [ADR-003](adr/003-api-layer-route-handlers.md) |
