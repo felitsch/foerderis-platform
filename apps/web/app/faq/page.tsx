@@ -103,7 +103,7 @@ export default function FaqPage() {
         // biome-ignore lint/security/noDangerouslySetInnerHtml: controlled static JSON-LD
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <main className="mx-auto max-w-3xl px-4 py-24">
+      <main id="main-content" className="mx-auto max-w-3xl px-4 py-24">
         <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-muted-foreground">
           Häufige Fragen
         </p>

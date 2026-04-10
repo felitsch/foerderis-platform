@@ -55,6 +55,9 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <a href="#main-content" className="skip-link">
+          Zum Inhalt springen
+        </a>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
