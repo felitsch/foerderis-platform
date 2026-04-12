@@ -55,14 +55,31 @@ describe("POST /api/internal/notify-approvals", () => {
     delete process.env.INTERNAL_WEBHOOK_SECRET;
   });
 
-  it("returns 503 when required env vars are missing", async () => {
-    delete process.env.RESEND_API_KEY;
+  it("returns 503 when Paperclip env vars are missing", async () => {
+    delete process.env.PAPERCLIP_API_URL;
     global.fetch = vi.fn();
 
     const res = await POST(makeRequest());
     expect(res.status).toBe(503);
     const body = await res.json();
-    expect(body.missing).toContain("RESEND_API_KEY");
+    expect(body.missing).toContain("PAPERCLIP_API_URL");
+  });
+
+  it("returns 200 with warning when RESEND_API_KEY is missing but still posts markers", async () => {
+    delete process.env.RESEND_API_KEY;
+    const issue = makeIssue("issue-0", "FRDAA-98", "Test ohne Resend");
+
+    global.fetch = mockFetchSequence([
+      { ok: true, json: [issue] }, // GET issues
+      { ok: true, json: [] }, // GET comments (none)
+      { ok: true, json: { id: "comment" } }, // POST marker comment
+    ]);
+
+    const res = await POST(makeRequest());
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.notified).toContain("FRDAA-98");
+    expect(body.warning).toMatch(/RESEND_API_KEY/);
   });
 
   it("returns 401 when INTERNAL_WEBHOOK_SECRET is set and request lacks auth", async () => {
