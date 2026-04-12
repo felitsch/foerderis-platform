@@ -33,7 +33,10 @@ export function WaitlistForm() {
 
       <div className="flex flex-col gap-1.5">
         <label htmlFor="email" className="text-sm font-medium text-foreground">
-          E-Mail-Adresse <span aria-hidden="true" className="text-destructive">*</span>
+          E-Mail-Adresse{" "}
+          <span aria-hidden="true" className="text-destructive">
+            *
+          </span>
         </label>
         <Input
           id="email"
@@ -49,7 +52,10 @@ export function WaitlistForm() {
 
       <div className="flex flex-col gap-1.5">
         <label htmlFor="companyName" className="text-sm font-medium text-foreground">
-          Firmenname <span aria-hidden="true" className="text-destructive">*</span>
+          Firmenname{" "}
+          <span aria-hidden="true" className="text-destructive">
+            *
+          </span>
         </label>
         <Input
           id="companyName"

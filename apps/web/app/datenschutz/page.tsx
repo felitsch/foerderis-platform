@@ -85,16 +85,14 @@ export default function DatenschutzPage() {
             E-Mail-Adresse sowie die optionalen Angaben, die Sie im Formular machen
             (Unternehmensname, Mitarbeiterzahl, Nachricht).
           </p>
-          <p className="mt-2">
-            Diese Daten verwenden wir ausschließlich, um:
-          </p>
+          <p className="mt-2">Diese Daten verwenden wir ausschließlich, um:</p>
           <ul className="mt-2 list-inside list-disc space-y-1">
             <li>Ihre Anfrage zu bearbeiten und Sie zu kontaktieren</li>
             <li>zu prüfen, ob Foerderis zu Ihrem Unternehmen passt</li>
           </ul>
           <p className="mt-2">
-            Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) sowie
-            Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Bearbeitung von Anfragen).
+            Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) sowie Art. 6
+            Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Bearbeitung von Anfragen).
           </p>
           <p className="mt-2">
             Ihre Daten werden nicht an Dritte weitergegeben und nicht für Werbezwecke genutzt. Sie
@@ -113,7 +111,9 @@ export default function DatenschutzPage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-semibold text-foreground">5. Schriften und externe Ressourcen</h2>
+          <h2 className="text-lg font-semibold text-foreground">
+            5. Schriften und externe Ressourcen
+          </h2>
           <p className="mt-2">
             Diese Website lädt keine Schriften von externen Servern (z. B. Google Fonts CDN).
             Sämtliche verwendeten Schriften sind Systemschriften des Betriebssystems oder werden
@@ -143,8 +143,8 @@ export default function DatenschutzPage() {
           </p>
           <p className="mt-2">
             Sie haben außerdem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die
-            Verarbeitung Ihrer personenbezogenen Daten zu beschweren. Die zuständige Aufsichtsbehörde
-            in Baden-Württemberg ist der{" "}
+            Verarbeitung Ihrer personenbezogenen Daten zu beschweren. Die zuständige
+            Aufsichtsbehörde in Baden-Württemberg ist der{" "}
             <a
               href="https://www.baden-wuerttemberg.datenschutz.de/"
               target="_blank"
@@ -161,8 +161,8 @@ export default function DatenschutzPage() {
           <h2 className="text-lg font-semibold text-foreground">7. Aktualität dieser Erklärung</h2>
           <p className="mt-2">
             Diese Datenschutzerklärung ist aktuell gültig und hat den Stand April 2026. Durch
-            Weiterentwicklung unserer Website oder aufgrund geänderter gesetzlicher bzw. behördlicher
-            Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern.
+            Weiterentwicklung unserer Website oder aufgrund geänderter gesetzlicher bzw.
+            behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern.
           </p>
         </section>
       </div>
