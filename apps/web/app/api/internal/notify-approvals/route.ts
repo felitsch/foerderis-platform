@@ -33,7 +33,7 @@ async function getIssuesNeedingApproval(
   companyId: string,
   token: string
 ): Promise<PaperclipIssue[]> {
-  const url = `${apiUrl}/api/companies/${companyId}/issues?labelId=${NEEDS_APPROVAL_LABEL_ID}&status=todo,in_progress,in_review,blocked`;
+  const url = `${apiUrl}/companies/${companyId}/issues?labelId=${NEEDS_APPROVAL_LABEL_ID}&status=todo,in_progress,in_review,blocked`;
   const res = await fetch(url, {
     headers: { Authorization: `Bearer ${token}` },
   });
@@ -44,7 +44,7 @@ async function getIssuesNeedingApproval(
 }
 
 async function isAlreadyNotified(apiUrl: string, issueId: string, token: string): Promise<boolean> {
-  const res = await fetch(`${apiUrl}/api/issues/${issueId}/comments`, {
+  const res = await fetch(`${apiUrl}/issues/${issueId}/comments`, {
     headers: { Authorization: `Bearer ${token}` },
   });
   if (!res.ok) return false;
@@ -58,7 +58,7 @@ async function markAsNotified(
   token: string,
   runId?: string
 ): Promise<void> {
-  await fetch(`${apiUrl}/api/issues/${issueId}/comments`, {
+  await fetch(`${apiUrl}/issues/${issueId}/comments`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -187,6 +187,8 @@ export async function POST(request: Request): Promise<NextResponse> {
     notified,
     skipped,
     errors,
-    ...(resend ? {} : { warning: "RESEND_API_KEY not set — marker comments posted but emails not sent" }),
+    ...(resend
+      ? {}
+      : { warning: "RESEND_API_KEY not set — marker comments posted but emails not sent" }),
   });
 }
