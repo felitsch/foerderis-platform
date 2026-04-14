@@ -29,5 +29,8 @@ Thumbs.db
 npm-debug.log*
 pnpm-debug.log*
 
+# Uploads
+uploads/
+
 # Vercel
 .vercel

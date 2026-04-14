@@ -9,6 +9,7 @@ export const dynamic = "force-dynamic";
 
 const NAV_ITEMS = [
   { href: "/portal/dashboard", label: "Dashboard" },
+  { href: "/portal/foerderprogramme", label: "Förderprogramme" },
   { href: "/portal/dokumente", label: "Dokumente" },
 ];
 

@@ -1,5 +1,6 @@
 import type { Document } from "@foerderis/db";
 import { getAuthenticatedCustomer, getCustomerDocuments } from "../queries";
+import { UploadForm } from "./upload-form";
 
 const CATEGORY_LABELS: Record<Document["category"], string> = {
   antrag: "Antrag",
@@ -39,6 +40,14 @@ export default async function DokumentePage() {
           Hier finden Sie alle Unterlagen zu Ihren Förderanträgen.
         </p>
       </div>
+
+      <section className="rounded-lg border border-border bg-card p-5">
+        <h2 className="text-sm font-semibold text-foreground mb-2">Dokument hochladen</h2>
+        <p className="text-xs text-muted-foreground mb-3">
+          PDF, PNG, JPG oder Word-Dateien (max. 10 MB)
+        </p>
+        <UploadForm />
+      </section>
 
       {documents.length === 0 ? (
         <div className="rounded-lg border border-border p-8 text-center text-muted-foreground">
