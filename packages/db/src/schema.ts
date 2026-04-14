@@ -107,3 +107,24 @@ export const lead = pgTable("lead", {
 
 export type Lead = typeof lead.$inferSelect;
 export type NewLead = typeof lead.$inferInsert;
+
+/**
+ * Documents available to a customer (Antragsunterlagen, Checklisten, etc.).
+ */
+export const document = pgTable("document", {
+  id: uuid("id").defaultRandom().primaryKey(),
+  customerId: uuid("customer_id")
+    .notNull()
+    .references(() => customer.id, { onDelete: "cascade" }),
+  name: text("name").notNull(),
+  category: text("category", {
+    enum: ["antrag", "checkliste", "bescheid", "sonstige"],
+  })
+    .notNull()
+    .default("sonstige"),
+  url: text("url").notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+});
+
+export type Document = typeof document.$inferSelect;
+export type NewDocument = typeof document.$inferInsert;
